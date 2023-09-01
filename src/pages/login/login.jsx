@@ -21,6 +21,7 @@ export const Login = () => {
     axiosInstance
       .post("/users/login", loggedUser)
       .then((data) => {
+        localStorage.setItem("token", data.data.data.token);
         successNot("Siz login qildingiz!");
         navigate("/");
       })
