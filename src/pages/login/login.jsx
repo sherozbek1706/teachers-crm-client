@@ -2,6 +2,9 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
   const navigate = useNavigate();
+  const handleLoginUser = (e) => {
+  };
+
   return (
     <div className="Login">
       <form className="Login__form" onSubmit={handleLoginUser}>
