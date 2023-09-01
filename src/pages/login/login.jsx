@@ -4,6 +4,8 @@ import { ToastContainer } from "react-toastify";
 export const Login = () => {
   const navigate = useNavigate();
   const handleLoginUser = (e) => {
+    e.preventDefault();
+
   };
 
   return (
