@@ -6,6 +6,13 @@ export const Login = () => {
     <div className="Login">
       <form className="Login__form" onSubmit={handleLoginUser}>
         <h1 className="Login__header">Login</h1>
+        <input
+          type="text"
+          id="username"
+          className="Login__input"
+          placeholder="Login"
+          required
+        />
       </form>
     </div>
   );
