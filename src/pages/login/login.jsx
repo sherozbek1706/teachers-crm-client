@@ -13,6 +13,14 @@ export const Login = () => {
           placeholder="Login"
           required
         />
+        <input
+          type="password"
+          id="password"
+          className="Login__input"
+          placeholder="Password"
+          required
+        />
+        <input type="submit" className="Login__submit" value={"Login"} />
       </form>
     </div>
   );
