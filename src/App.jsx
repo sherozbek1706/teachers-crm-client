@@ -12,6 +12,7 @@ export const App = () => {
           exact
           path="/"
           element={
+              <Dashboard />
           }
         />
 
