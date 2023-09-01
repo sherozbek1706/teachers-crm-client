@@ -1,6 +1,7 @@
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../shared/services/axios";
+import { successNot, errorNot } from "../../shared/toastfy";
 import { ToastContainer } from "react-toastify";
 export const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ export const Login = () => {
 
     axiosInstance
       .post("/users/login", loggedUser)
+      .then((data) => {
+        successNot("Siz login qildingiz!");
+        navigate("/");
+      })
   };
 
   return (
