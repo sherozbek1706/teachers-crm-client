@@ -21,6 +21,21 @@ export const App = () => {
 
         <Route path="/login" element={<Login />} />
       </Router>
+
+      {/* TOASTIFY */}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
