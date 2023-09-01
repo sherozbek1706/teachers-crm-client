@@ -6,6 +6,10 @@ export const Login = () => {
   const handleLoginUser = (e) => {
     e.preventDefault();
 
+    const {
+      username: { value: username },
+      password: { value: password },
+    } = e.target.elements;
   };
 
   return (
