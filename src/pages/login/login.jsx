@@ -10,6 +10,12 @@ export const Login = () => {
       username: { value: username },
       password: { value: password },
     } = e.target.elements;
+
+    const loggedUser = {
+      username,
+      password,
+    };
+
   };
 
   return (
