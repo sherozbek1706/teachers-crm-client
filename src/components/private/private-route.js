@@ -7,4 +7,5 @@ export const Protected = ({ isLoggedIn, children }) => {
     return null;
   }
 
+  return children;
 };
