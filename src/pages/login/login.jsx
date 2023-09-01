@@ -25,6 +25,9 @@ export const Login = () => {
         successNot("Siz login qildingiz!");
         navigate("/");
       })
+      .catch((err) => {
+        errorNot(err.response.data.error);
+      });
   };
 
   return (
