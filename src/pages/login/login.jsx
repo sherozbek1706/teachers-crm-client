@@ -1,5 +1,6 @@
 import "./login.css";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../shared/services/axios";
 import { ToastContainer } from "react-toastify";
 export const Login = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export const Login = () => {
       password,
     };
 
+    axiosInstance
+      .post("/users/login", loggedUser)
   };
 
   return (
