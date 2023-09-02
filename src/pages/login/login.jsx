@@ -23,7 +23,9 @@ export const Login = () => {
       .then((data) => {
         localStorage.setItem("token", data.data.data.token);
         successNot("Siz login qildingiz!");
-        navigate("/");
+        setTimeout(() => {
+          window.location.assign("/");
+        }, 1200);
       })
       .catch((err) => {
         errorNot(err.response.data.error);
