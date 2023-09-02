@@ -1,5 +1,55 @@
-.Sitebar{
+.Sitebar {
+  position: relative;
   width: 320px;
   height: 100%;
-  border: 1px solid red;
+  padding: 20px 10px;
+  background: #4b86b4;
+}
+.Sitebar__title {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.Sitebar__btns {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.Sitebar__btn {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #ffffff50;
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  box-shadow: rgba(209, 209, 213, 0.25) 0px 2px 5px -1px,
+    rgba(238, 235, 235, 0.3) 0px 1px 3px -1px;
+}
+.Sitebar__btn:hover {
+  background-color: #fff;
+  color: #4b86b4;
+}
+
+.Sitebar__logout {
+  position: absolute;
+  width: 300px;
+  bottom: 0;
+}
+.Sitebar__logout .Sitebar__btn {
+  background-color: #ee403555;
+  box-shadow: rgba(222, 5, 5, 0.25) 0px 2px 5px -1px,
+    rgba(237, 8, 8, 0.3) 0px 1px 3px -1px;
+}
+.Sitebar__logout .Sitebar__btn:hover {
+  background-color: #ee4035;
+  color: #fff;
 }
