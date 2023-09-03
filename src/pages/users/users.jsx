@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { Sitebar } from "../../layouts";
+import "./users.css";
+import { axiosInstance } from "../../shared/services/axios";
+import { Loader } from "../../components";
 export const Users = () => {
   const [usersData, setUsersData] = useState([]);
   useEffect(() => {
@@ -20,6 +24,11 @@ export const Users = () => {
         </div>
         <div className="Users__options"></div>
         <div className="Users__list">
+          {usersData[0].map((user) => (
+            <div className="Users__row">
+              
+            </div>
+          ))}
         </div>
       </div>
     </div>
