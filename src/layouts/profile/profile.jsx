@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import "./profile.css";
+
 export const Profile = () => {
+  const [userData, setUserData] = useState([]);
   return (
     <div className="Profile__Dashboard">
       <div className="Profile">
