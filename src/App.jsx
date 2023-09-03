@@ -18,6 +18,13 @@ export const App = () => {
             </Protected>
           }
         />
+
+        <Route
+          exact
+          path="/users"
+          element={
+            <Protected isLoggedIn={token}>
+              <Users />
             </Protected>
           }
         />
