@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Sitebar } from "../sitebar";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
@@ -17,6 +18,7 @@ export const Profile = () => {
   }
   return (
     <div className="Profile__Dashboard">
+      <Sitebar data={userData[0].role} />
       <div className="Profile">
         <div className="Profile__header">
           <h1 className="Profile__header__title">User Profile</h1>
