@@ -1,6 +1,6 @@
 import "./sitebar.css";
 import { Link } from "react-router-dom";
-export const Sitebar = () => {
+export const Sitebar = ({ data = localStorage.getItem("role") }) => {
   return (
     <div className="Sitebar">
       <h1 className="Sitebar__title">Najot Final</h1>
