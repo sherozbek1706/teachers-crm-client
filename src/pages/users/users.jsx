@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 export const Users = () => {
+  const [usersData, setUsersData] = useState([]);
   return (
     <div className="Users__dashboard">
       <Sitebar />
