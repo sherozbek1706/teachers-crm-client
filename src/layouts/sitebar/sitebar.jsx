@@ -1,6 +1,13 @@
 import "./sitebar.css";
 import { Link } from "react-router-dom";
 export const Sitebar = ({ data = localStorage.getItem("role") }) => {
+  const handleLogOut = () => {
+    localStorage.clear();
+    successNot("Siz Log Out qildingiz!");
+    setTimeout(() => {
+      window.location.assign("/profile");
+    }, 1200);
+  };
   return (
     <div className="Sitebar">
       <h1 className="Sitebar__title">Najot Final</h1>
@@ -21,9 +28,9 @@ export const Sitebar = ({ data = localStorage.getItem("role") }) => {
       </div>
 
       <div className="Sitebar__btns Sitebar__logout">
-        <Link to="" className="Sitebar__btn">
+        <button className="Sitebar__btn" onClick={handleLogOut}>
           Log Out
-        </Link>
+        </button>
       </div>
     </div>
   );
