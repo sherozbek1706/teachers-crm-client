@@ -7,6 +7,10 @@ export const Users = () => {
     });
   }, []);
 
+  if (!usersData.length) {
+    return <Loader />;
+  }
+
   return (
     <div className="Users__dashboard">
       <Sitebar />
