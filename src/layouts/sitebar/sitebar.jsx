@@ -13,18 +13,23 @@ export const Sitebar = ({ data = localStorage.getItem("role") }) => {
       <h1 className="Sitebar__title">Najot Final</h1>
 
       <div className="Sitebar__btns">
-        <Link to="" className="Sitebar__btn">
+        <Link to="/profile" className="Sitebar__btn">
           Profile
         </Link>
-        <Link to="" className="Sitebar__btn">
-          Users
-        </Link>
-        <Link to="" className="Sitebar__btn">
-          Guides
-        </Link>
-        <Link to="" className="Sitebar__btn">
-          My Guides
-        </Link>
+        {data == "admin" ? (
+          <>
+            <Link to="/users" className="Sitebar__btn">
+              Users
+            </Link>
+            <Link to="" className="Sitebar__btn">
+              Guides
+            </Link>
+          </>
+        ) : (
+          <Link to="" className="Sitebar__btn">
+            My Guides
+          </Link>
+        )}
       </div>
 
       <div className="Sitebar__btns Sitebar__logout">
