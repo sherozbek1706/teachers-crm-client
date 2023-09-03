@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
+import { Loader } from "../../components";
 
 export const Profile = () => {
   const [userData, setUserData] = useState([]);
@@ -11,6 +12,9 @@ export const Profile = () => {
     });
   }, []);
 
+  if (!userData.length) {
+    return <Loader />;
+  }
   return (
     <div className="Profile__Dashboard">
       <div className="Profile">
