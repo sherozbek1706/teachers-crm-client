@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 export const Users = () => {
   const [usersData, setUsersData] = useState([]);
+  useEffect(() => {
+    axiosInstance.get("/users").then((res) => {
+      setUsersData([res.data.data]);
+    });
+  }, []);
+
   return (
     <div className="Users__dashboard">
       <Sitebar />
