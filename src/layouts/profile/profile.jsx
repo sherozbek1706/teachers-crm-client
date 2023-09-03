@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import "./profile.css";
+import { axiosInstance } from "../../shared/services/axios";
 
 export const Profile = () => {
   const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    axiosInstance.get("users/me").then((res) => {
+      setUserData([res.data.data]);
+      localStorage.setItem("role", res.data.data.role);
+    });
+  }, []);
+
   return (
     <div className="Profile__Dashboard">
       <div className="Profile">
