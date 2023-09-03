@@ -22,10 +22,10 @@ export const Login = () => {
       .post("/users/login", loggedUser)
       .then((data) => {
         localStorage.setItem("token", data.data.data.token);
-        successNot("Siz login qildingiz!");
         setTimeout(() => {
-          window.location.assign("/");
+          window.location.assign("/profile");
         }, 1200);
+        successNot("Siz login qildingiz!");
       })
       .catch((err) => {
         errorNot(err.response.data.error);
