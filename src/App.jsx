@@ -2,7 +2,8 @@ import { Route, Routes as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { Protected } from "./components";
-import { Dashboard, Login } from "./pages";
+import { Login, Users } from "./pages";
+import { Profile } from "./layouts";
 export const App = () => {
   const token = localStorage.getItem("token") ? true : false;
 
@@ -11,10 +12,20 @@ export const App = () => {
       <Router>
         <Route
           exact
-          path="/"
+          path="/profile"
           element={
             <Protected isLoggedIn={token}>
-              <Dashboard />
+              <Profile />
+            </Protected>
+          }
+        />
+
+        <Route
+          exact
+          path="/users"
+          element={
+            <Protected isLoggedIn={token}>
+              <Users />
             </Protected>
           }
         />
