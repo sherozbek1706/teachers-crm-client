@@ -45,11 +45,13 @@
   bottom: 0;
 }
 .Sitebar__logout .Sitebar__btn {
+  border: none;
   background-color: #ee403555;
   box-shadow: rgba(222, 5, 5, 0.25) 0px 2px 5px -1px,
     rgba(237, 8, 8, 0.3) 0px 1px 3px -1px;
 }
 .Sitebar__logout .Sitebar__btn:hover {
   background-color: #ee4035;
+  cursor: pointer;
   color: #fff;
 }
