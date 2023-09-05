@@ -13,6 +13,11 @@ export const Users = () => {
       .then((res) => {
         setUsersData([res.data.data]);
       })
+      .catch((err) => {
+        if (err.response.data.error == "This user is not allowed this right!") {
+          navigate("/");
+        }
+      });
   }, []);
 
   if (!usersData.length) {
