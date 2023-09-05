@@ -20,13 +20,19 @@ export const Profile = () => {
   };
 
   useEffect(() => {
-    axiosInstance.get("users/me").then((res) => {
-      setUserData([res.data.data]);
-      localStorage.setItem("role", res.data.data.role);
-    });
-  }, []);
+    axiosInstance
+      .get(`users/${id}`)
+      .then((res) => {
+        const data = res.data.data;
+        setUserData(data);
+        if (data.role && id == "me") {
+          localStorage.setItem("role", data.role);
+        }
+      })
+      .catch(handleError);
+  }, [id]);
 
-  if (!userData.length) {
+  if (!userData._id) {
     return <Loader />;
   }
 
