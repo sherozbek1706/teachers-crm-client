@@ -9,7 +9,7 @@
   width: calc(100% - 320px);
   height: 100%;
 }
-.Users__header{
+.Users__header {
   width: 100%;
   height: 70px;
   background: #adcbe3;
@@ -18,28 +18,92 @@
   justify-content: flex-start;
   padding-left: 35px;
 }
-.Users__header__title{
+.Users__header__title {
   color: #2a4d69;
   letter-spacing: -1px;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 24px;
 }
-.Users__options{
+.Users__options {
   width: 100%;
   height: 70px;
   margin-bottom: 20px;
 }
-.Users__list{
+.Users__list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 650px ;
+  min-height: 650px;
 }
-.Users__row{
+.Users__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 90%;
   height: 50px;
-  border: 1px solid red;
+  border: 0.7px solid #11100050;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+.Users__row:first-child {
+  margin-bottom: 20px;
+  height: 70px;
+}
+
+.Users__text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 10px;
+}
+.Users__firstname {
+  width: 20%;
+  text-transform: capitalize;
+}
+.Users__lastname {
+  width: 20%;
+  text-transform: capitalize;
+}
+.Users__role {
+  width: 12%;
+}
+.Users__age {
+  width: 8%;
+}
+.Users__username {
+  width: 20%;
+}
+.Users__option {
+  width: 20%;
+  /* border: 1px solid red; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+}
+.Users__icons {
+  font-size: 28px;
+  margin: 0 10px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+}
+.Users__view {
+  color: #8a2be2;
+}
+.Users__edit {
+  color: #008744;
+}
+.Users__delete {
+  color: #d62d20;
+}
+.Users__icons:hover {
+  opacity: 1;
 }
