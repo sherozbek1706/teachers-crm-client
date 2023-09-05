@@ -3,10 +3,22 @@ import { Sitebar } from "../sitebar";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const Profile = () => {
-  const [userData, setUserData] = useState([]);
+  const navigate = useNavigate();
   const { id = "me" } = useParams();
+  const [userData, setUserData] = useState({});
+
+  const handleError = (err) => {
+    if (
+      err.response &&
+      err.response.data.error === "This user is not allowed this right!"
+    ) {
+      navigate("/");
+    }
+  };
+
   useEffect(() => {
     axiosInstance.get("users/me").then((res) => {
       setUserData([res.data.data]);
