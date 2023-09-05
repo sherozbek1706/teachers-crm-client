@@ -3,12 +3,21 @@ import { Sitebar } from "../../layouts";
 import "./users.css";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
+import { useNavigate } from "react-router-dom";
 export const Users = () => {
+  const navigate = useNavigate();
   const [usersData, setUsersData] = useState([]);
   useEffect(() => {
-    axiosInstance.get("/users").then((res) => {
-      setUsersData([res.data.data]);
-    });
+    axiosInstance
+      .get("/users")
+      .then((res) => {
+        setUsersData([res.data.data]);
+      })
+      .catch((err) => {
+        if (err.response.data.error == "This user is not allowed this right!") {
+          navigate("/");
+        }
+      });
   }, []);
 
   if (!usersData.length) {
@@ -25,9 +34,7 @@ export const Users = () => {
         <div className="Users__options"></div>
         <div className="Users__list">
           {usersData[0].map((user) => (
-            <div className="Users__row">
-              
-            </div>
+            <div className="Users__row"></div>
           ))}
         </div>
       </div>
