@@ -31,6 +31,16 @@ export const App = () => {
         />
 
         <Route
+          exact
+          path="/profile/:id"
+          element={
+            <Protected isLoggedIn={token}>
+              <Profile />
+            </Protected>
+          }
+        />
+
+        <Route
           path="*"
           element={
             <Protected isLoggedIn={token}>
