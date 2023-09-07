@@ -1,6 +1,8 @@
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../shared/services/axios";
+import { successNot } from "../../shared/toastfy";
+import { HandleFetchError } from "../../shared/errors/clear-account";
 export const Login = () => {
   const navigate = useNavigate();
   const handleLoginUser = (e) => {
@@ -26,6 +28,7 @@ export const Login = () => {
         successNot("Siz login qildingiz!");
       })
       .catch((err) => {
+        HandleFetchError(err);
       });
   };
 

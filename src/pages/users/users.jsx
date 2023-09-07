@@ -5,12 +5,15 @@ import { AiFillEye } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
+import { Link } from "react-router-dom";
+import { HandleFetchError } from "../../shared/errors/clear-account";
 
 export const Users = () => {
   const [usersData, setUsersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    fetchData();
   }, []);
 
   const fetchData = () => {
@@ -20,6 +23,9 @@ export const Users = () => {
         setUsersData(data.data);
         setLoading(false);
       })
+      .catch((err) => {
+        HandleFetchError(err);
+      });
   };
 
   const handleRemoveUser = (id) => {
@@ -29,6 +35,9 @@ export const Users = () => {
         setUsersData((prevUsersData) =>
           prevUsersData.filter((user) => user.id !== id)
         );
+      })
+      .catch((err) => {
+        HandleFetchError(err);
       })
       .finally(() => {
         fetchData();

@@ -3,6 +3,8 @@ import { Sitebar } from "../sitebar";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
+import { useParams } from "react-router-dom";
+import { HandleFetchError } from "../../shared/errors/clear-account";
 
 export const Profile = () => {
   const { id = "me" } = useParams();
@@ -18,6 +20,9 @@ export const Profile = () => {
           localStorage.setItem("role", data.role);
         }
       })
+      .catch((err) => {
+        HandleFetchError(err);
+      });
   }, [id]);
 
   if (!userData._id) {
