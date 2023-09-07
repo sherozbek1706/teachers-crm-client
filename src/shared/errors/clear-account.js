@@ -1,3 +1,4 @@
+import { errorNot } from "../toastfy";
 
 export const HandleFetchError = (err) => {
   if (err.response) {
@@ -34,3 +35,10 @@ const jwt_expired = () => {
   }, 1200);
 };
 
+const invalid_signature = () => {
+  localStorage.clear();
+  errorNot("Sizning Token Noto'g'ri!");
+  setTimeout(() => {
+    window.location.assign("/");
+  }, 1200);
+};
