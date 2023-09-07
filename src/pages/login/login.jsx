@@ -1,8 +1,6 @@
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../shared/services/axios";
-import { successNot, errorNot } from "../../shared/toastfy";
-import { ToastContainer } from "react-toastify";
 export const Login = () => {
   const navigate = useNavigate();
   const handleLoginUser = (e) => {
@@ -28,7 +26,6 @@ export const Login = () => {
         successNot("Siz login qildingiz!");
       })
       .catch((err) => {
-        errorNot(err.response.data.error);
       });
   };
 

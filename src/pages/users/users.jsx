@@ -5,15 +5,12 @@ import { AiFillEye } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
-import { Link, useNavigate } from "react-router-dom";
 
 export const Users = () => {
-  const navigate = useNavigate();
   const [usersData, setUsersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchData(); // Fetch data when the component mounts
   }, []);
 
   const fetchData = () => {
@@ -23,33 +20,21 @@ export const Users = () => {
         setUsersData(data.data);
         setLoading(false);
       })
-      .catch(handleError);
-  };
-
-  const handleError = (err) => {
-    if (
-      err.response &&
-      err.response.data.error === "This user is not allowed this right!"
-    ) {
-      navigate("/");
-    }
   };
 
   const handleRemoveUser = (id) => {
     axiosInstance
       .delete(`/users/${id}`)
       .then(() => {
-        // Remove the deleted user from the state
         setUsersData((prevUsersData) =>
           prevUsersData.filter((user) => user.id !== id)
         );
       })
-      .catch(handleError)
       .finally(() => {
-        // Refetch data after removal
         fetchData();
       });
   };
+
   return (
     <div className="Users__dashboard">
       <Sitebar />
