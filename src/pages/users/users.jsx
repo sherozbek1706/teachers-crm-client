@@ -5,15 +5,15 @@ import { AiFillEye } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { HandleFetchError } from "../../shared/errors/clear-account";
 
 export const Users = () => {
-  const navigate = useNavigate();
   const [usersData, setUsersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchData(); // Fetch data when the component mounts
+    fetchData();
   }, []);
 
   const fetchData = () => {
@@ -23,33 +23,27 @@ export const Users = () => {
         setUsersData(data.data);
         setLoading(false);
       })
-      .catch(handleError);
-  };
-
-  const handleError = (err) => {
-    if (
-      err.response &&
-      err.response.data.error === "This user is not allowed this right!"
-    ) {
-      navigate("/");
-    }
+      .catch((err) => {
+        HandleFetchError(err);
+      });
   };
 
   const handleRemoveUser = (id) => {
     axiosInstance
       .delete(`/users/${id}`)
       .then(() => {
-        // Remove the deleted user from the state
         setUsersData((prevUsersData) =>
           prevUsersData.filter((user) => user.id !== id)
         );
       })
-      .catch(handleError)
+      .catch((err) => {
+        HandleFetchError(err);
+      })
       .finally(() => {
-        // Refetch data after removal
         fetchData();
       });
   };
+
   return (
     <div className="Users__dashboard">
       <Sitebar />
