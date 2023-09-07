@@ -5,8 +5,10 @@ import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
 import { useParams } from "react-router-dom";
 import { HandleFetchError } from "../../shared/errors/clear-account";
+import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
+  const navigate = useNavigate();
   const { id = "me" } = useParams();
   const [userData, setUserData] = useState({});
 
@@ -21,6 +23,9 @@ export const Profile = () => {
         }
       })
       .catch((err) => {
+        if (err.response.status == "404") {
+          navigate("/");
+        }
         HandleFetchError(err);
       });
   }, [id]);
