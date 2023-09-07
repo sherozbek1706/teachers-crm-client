@@ -1,12 +1,13 @@
 .Users__dashboard {
   width: 100%;
   height: 100vh;
+  padding-left: 320px;
   display: flex;
   align-items: start;
   justify-content: start;
 }
 .Users {
-  width: calc(100% - 320px);
+  width: calc(100%);
   height: 100%;
 }
 .Users__header {
