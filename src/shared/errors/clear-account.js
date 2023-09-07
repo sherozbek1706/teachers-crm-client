@@ -21,3 +21,8 @@ export const HandleFetchError = (err) => {
     }
   }
 };
+
+const not_allow = () => {
+  window.location.assign("/");
+};
+
