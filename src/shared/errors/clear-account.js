@@ -26,3 +26,11 @@ const not_allow = () => {
   window.location.assign("/");
 };
 
+const jwt_expired = () => {
+  localStorage.clear();
+  errorNot("Sizning Token Eskirgan!");
+  setTimeout(() => {
+    window.location.assign("/");
+  }, 1200);
+};
+
