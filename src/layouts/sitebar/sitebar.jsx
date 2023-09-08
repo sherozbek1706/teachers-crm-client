@@ -23,6 +23,13 @@ export const Sitebar = ({ data = localStorage.getItem("role") }) => {
               Users
             </Link>
           </>
+        ) : null}
+        <Link to="/guides" className="Sitebar__btn">
+          Guides
+        </Link>
+        <Link to="myguides" className="Sitebar__btn">
+          My Guides
+        </Link>
       </div>
 
       <div className="Sitebar__btns Sitebar__logout">
