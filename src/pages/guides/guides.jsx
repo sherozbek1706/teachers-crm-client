@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import { GuideList, Sitebar } from "../../layouts";
-import "./guides.css";
-import { axiosInstance } from "../../shared/services/axios";
-import { HandleFetchError } from "../../shared/errors/clear-account";
+import { Fragment, useEffect, useState } from "react";
 import { Loader } from "../../components";
+import { GuideList, Sitebar } from "../../layouts";
+import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
+import "./guides.css";
+
 export const Guides = () => {
+  const role = localStorage.getItem("role") == "admin";
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     axiosInstance
       .get("/guides")
@@ -19,7 +20,6 @@ export const Guides = () => {
         HandleFetchError(err);
       });
   }, []);
-
   return (
     <div className="Guides__dashboard">
       <Sitebar />
@@ -27,7 +27,11 @@ export const Guides = () => {
         <div className="Guides__header">
           <h1 className="Guides__header__title">All Guides</h1>
           <div className="Guides__header__option">
-            <button className="Guides__header__create">Add Guide</button>
+            {role ? (
+              <Fragment>
+                <button className="Guides__header__create">Add Guide</button>
+              </Fragment>
+            ) : null}
           </div>
         </div>
         {loading ? <Loader /> : <GuideList data={data} />}
