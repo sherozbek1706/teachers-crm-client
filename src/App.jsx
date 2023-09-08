@@ -4,77 +4,83 @@ import "./App.css";
 import { Protected } from "./components";
 import { Guides, Login, NotFound, Users } from "./pages";
 import { Profile } from "./layouts";
+import { MyContext } from "./shared/context";
 export const App = () => {
   const token = localStorage.getItem("token") ? true : false;
+  const role = localStorage.getItem("role") == "admin";
+
+  console.log(role);
 
   return (
-    <div className="App">
-      <Router>
-        <Route
-          exact
-          path="/profile"
-          element={
-            <Protected isLoggedIn={token}>
-              <Profile />
-            </Protected>
-          }
+    <MyContext.Provider value={role}>
+      <div className="App">
+        <Router>
+          <Route
+            exact
+            path="/profile"
+            element={
+              <Protected isLoggedIn={token}>
+                <Profile />
+              </Protected>
+            }
+          />
+
+          <Route
+            exact
+            path="/users"
+            element={
+              <Protected isLoggedIn={token}>
+                <Users />
+              </Protected>
+            }
+          />
+
+          <Route
+            exact
+            path="/profile/:id"
+            element={
+              <Protected isLoggedIn={token}>
+                <Profile />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/guides"
+            element={
+              <Protected isLoggedIn={token}>
+                <Guides />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <Protected isLoggedIn={token}>
+                <NotFound />
+              </Protected>
+            }
+          />
+
+          <Route path="/login" element={<Login />} />
+        </Router>
+
+        {/* TOASTIFY */}
+
+        <ToastContainer
+          position="top-right"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
         />
-
-        <Route
-          exact
-          path="/users"
-          element={
-            <Protected isLoggedIn={token}>
-              <Users />
-            </Protected>
-          }
-        />
-
-        <Route
-          exact
-          path="/profile/:id"
-          element={
-            <Protected isLoggedIn={token}>
-              <Profile />
-            </Protected>
-          }
-        />
-
-        <Route
-          path="/guides"
-          element={
-            <Protected isLoggedIn={token}>
-              <Guides />
-            </Protected>
-          }
-        />
-
-        <Route
-          path="*"
-          element={
-            <Protected isLoggedIn={token}>
-              <NotFound />
-            </Protected>
-          }
-        />
-
-        <Route path="/login" element={<Login />} />
-      </Router>
-
-      {/* TOASTIFY */}
-
-      <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-    </div>
+      </div>
+    </MyContext.Provider>
   );
 };
