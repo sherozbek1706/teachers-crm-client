@@ -30,10 +30,6 @@ export const Profile = () => {
       });
   }, [id]);
 
-  if (!userData._id) {
-    return <Loader />;
-  }
-
   const { _id, first_name, last_name, username, age, role } = userData;
 
   return (
@@ -43,32 +39,36 @@ export const Profile = () => {
         <div className="Profile__header">
           <h1 className="Profile__header__title">User Profile</h1>
         </div>
-        <div className="Profile__infos">
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">ID</p>
-            <p className="Profile__info__text">{_id}</p>
+        {!userData._id ? (
+          <Loader />
+        ) : (
+          <div className="Profile__infos">
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">ID</p>
+              <p className="Profile__info__text">{_id}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">FIRST NAME</p>
+              <p className="Profile__info__text">{first_name}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">LAST NAME</p>
+              <p className="Profile__info__text">{last_name}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">USERNAME</p>
+              <p className="Profile__info__text">{username}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">AGE</p>
+              <p className="Profile__info__text">{age}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">ROLE</p>
+              <p className="Profile__info__text">{role}</p>
+            </div>
           </div>
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">FIRST NAME</p>
-            <p className="Profile__info__text">{first_name}</p>
-          </div>
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">LAST NAME</p>
-            <p className="Profile__info__text">{last_name}</p>
-          </div>
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">USERNAME</p>
-            <p className="Profile__info__text">{username}</p>
-          </div>
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">AGE</p>
-            <p className="Profile__info__text">{age}</p>
-          </div>
-          <div className="Profile__info">
-            <p className="Profile__info__shadow">ROLE</p>
-            <p className="Profile__info__text">{role}</p>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
