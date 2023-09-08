@@ -3,6 +3,7 @@ import { Loader } from "../../components";
 import { GuideList, Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
+import { Link } from "react-router-dom";
 import "./guides.css";
 
 export const Guides = () => {
@@ -29,7 +30,9 @@ export const Guides = () => {
           <div className="Guides__header__option">
             {role ? (
               <Fragment>
-                <button className="Guides__header__create">Add Guide</button>
+                <Link to="/add/guides">
+                  <button className="Guides__header__create">Add Guide</button>
+                </Link>
               </Fragment>
             ) : null}
           </div>
