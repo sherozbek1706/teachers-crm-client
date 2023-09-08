@@ -26,6 +26,9 @@ export const Guides = () => {
       <div className="Guides">
         <div className="Guides__header">
           <h1 className="Guides__header__title">All Guides</h1>
+          <div className="Guides__header__option">
+            <button className="Guides__header__create">Add Guide</button>
+          </div>
         </div>
         {loading ? <Loader /> : <GuideList data={data} />}
       </div>
