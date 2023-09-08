@@ -1,0 +1,24 @@
+.GuideRow {
+  min-width: 280px;
+  width: 30%;
+  min-height: 250px;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding: 15px 10px;
+  background: #e7eff6;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.GuideRow__title {
+  line-height: 26px;
+  letter-spacing: -0.8px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.GuideRow__content {
+  letter-spacing: -0.5px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
