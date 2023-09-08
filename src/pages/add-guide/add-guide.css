@@ -1,0 +1,133 @@
+.AddGuide__dashboard {
+  width: 100%;
+  height: 100vh;
+  padding-left: 320px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.AddGuide {
+  width: calc(100%);
+  height: 100%;
+}
+.AddGuide__header {
+  width: 100%;
+  height: 70px;
+  background: #adcbe3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 35px;
+}
+.AddGuide__header__title {
+  color: #2a4d69;
+  letter-spacing: -1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.AddGuide__header__option {
+  padding: 10px 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.AddGuide__header__back {
+  width: 150px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  background: #457fae50;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  transition: 0.3s ease-in-out;
+}
+.AddGuide__header__back:hover {
+  background: #457fae;
+  cursor: pointer;
+}
+.AddGuideForm {
+  width: 100%;
+  padding: 10px 35px;
+}
+.AddGuideForm__title {
+  font-size: 32px;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+}
+.AddGuideForm__place {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.AddGuideForm__holder {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.AddGuideForm__area {
+  width: 80%;
+  padding: 10px 20px;
+  font-size: 20px;
+  resize: none;
+  outline: none;
+  background: #e7eff653;
+  border-radius: 4px;
+  border: 1px solid #051e3e10;
+  box-shadow: #ada6a633 0px 2px 8px 0px;
+}
+.AddGuideForm__place ._title {
+  height: 160px;
+}
+.AddGuideForm__place ._content {
+  height: 320px;
+}
+.AddGuideForm__charCount {
+  margin: 10px 0;
+  font-weight: 600;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.AddGuideForm__checking {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.AddGuideForm__checkbox {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.AddGuideForm__checking__reason {
+  font-size: 18px;
+  font-weight: 600;
+}
+.AddGuideForm__submit {
+  width: 80%;
+  margin: 20px 0;
+  margin-left: 20px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background: #4a4e4d60;
+  transition: 0.4s ease-in-out;
+}
+.AddGuideForm__submit:hover {
+  cursor: pointer;
+  background: #4a4e4d;
+  color: #fff;
+}

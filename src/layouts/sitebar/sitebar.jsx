@@ -3,7 +3,6 @@ import "./sitebar.css";
 import { Link, useLocation } from "react-router-dom";
 export const Sitebar = ({ data = localStorage.getItem("role") }) => {
   const { pathname: location } = useLocation();
-  console.log(location);
   const handleLogOut = () => {
     localStorage.clear();
     successNot("Siz Log Out qildingiz!");
