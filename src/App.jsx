@@ -9,8 +9,6 @@ export const App = () => {
   const token = localStorage.getItem("token") ? true : false;
   const role = localStorage.getItem("role") == "admin";
 
-  console.log(role);
-
   return (
     <MyContext.Provider value={role}>
       <div className="App">
