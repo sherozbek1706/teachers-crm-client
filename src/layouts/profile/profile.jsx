@@ -30,7 +30,17 @@ export const Profile = () => {
       });
   }, [id]);
 
-  const { _id, first_name, last_name, username, age, role } = userData;
+  const {
+    _id,
+    first_name,
+    last_name,
+    username,
+    age,
+    role,
+    read_guides,
+    todo_guides,
+    total_guides,
+  } = userData;
 
   return (
     <div className="Profile__Dashboard">
@@ -66,6 +76,18 @@ export const Profile = () => {
             <div className="Profile__info">
               <p className="Profile__info__shadow">ROLE</p>
               <p className="Profile__info__text">{role}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">TOTAL GUIDES</p>
+              <p className="Profile__info__text">{total_guides}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">TODO GUIDES</p>
+              <p className="Profile__info__text">{todo_guides}</p>
+            </div>
+            <div className="Profile__info">
+              <p className="Profile__info__shadow">COMPLETED GUIDES</p>
+              <p className="Profile__info__text">{read_guides}</p>
             </div>
           </div>
         )}
