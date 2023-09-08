@@ -40,7 +40,10 @@
   background-color: #fff;
   color: #4b86b4;
 }
-
+.active__tab {
+  background-color: #fff;
+  color: #4b86b4;
+}
 .Sitebar__logout {
   position: absolute;
   width: 300px;
