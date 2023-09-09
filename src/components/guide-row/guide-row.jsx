@@ -1,7 +1,8 @@
 import "./guide-row.css";
+import { axiosInstance } from "../../shared/services/axios";
 import { MdDelete, MdEdit, MdRemoveRedEye } from "react-icons/md";
 export const GuideRow = ({ data }) => {
-  const { title, content } = data;
+  const { title, content, id } = data;
 
   const truncatedText = (text, length) => {
     return text.length > length ? `${text.substring(0, length)}...` : text;
@@ -14,9 +15,6 @@ export const GuideRow = ({ data }) => {
       <div className="GuideRow__options">
         <div className="GuideRow__options__icon">
           <MdRemoveRedEye className="icon see" />
-        </div>
-        <div className="GuideRow__options__icon">
-          <MdDelete className="icon delete" />
         </div>
         <div className="GuideRow__options__icon">
           <MdEdit className="icon edit" />
