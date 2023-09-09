@@ -1,8 +1,22 @@
+import { Fragment, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { axiosInstance } from "../../shared/services/axios";
 import { successNot } from "../../shared/toastfy";
 import "./sitebar.css";
-import { Link, useLocation } from "react-router-dom";
-export const Sitebar = ({ data = localStorage.getItem("role") }) => {
+export const Sitebar = ({ role = localStorage.getItem("role") }) => {
   const { pathname: location } = useLocation();
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    await axiosInstance.get("/users/me").then(({ data: { data } }) => {
+      setData(data);
+    });
+  };
+
   const handleLogOut = () => {
     localStorage.clear();
     successNot("Siz Log Out qildingiz!");
@@ -10,54 +24,80 @@ export const Sitebar = ({ data = localStorage.getItem("role") }) => {
       window.location.assign("/profile");
     }, 1200);
   };
+
   return (
-    <div className="Sitebar">
-      <h1 className="Sitebar__title">Najot Final</h1>
+    <nav className="sidebar">
+      <header>
+        <div className="image-text">
+          <span className="image">
+            <img src="../../../public/avatar.png" alt="" />
+          </span>
 
-      <div className="Sitebar__btns">
-        <Link
-          to="/profile"
-          className={`Sitebar__btn  ${
-            location == "/profile" ? "active__tab" : null
-          }`}
-        >
-          Profile
-        </Link>
-        {data == "admin" ? (
-          <>
-            <Link
-              to="/users"
-              className={`Sitebar__btn  ${
-                location == "/users" ? "active__tab" : null
-              }`}
-            >
-              Users
-            </Link>
-          </>
-        ) : null}
-        <Link
-          to="/guides"
-          className={`Sitebar__btn  ${
-            location == "/guides" ? "active__tab" : null
-          }`}
-        >
-          Guides
-        </Link>
-        <Link
-          to="myguides"
-          className={`Sitebar__btn  ${
-            location == "/myguides" ? "active__tab" : null
-          }`}
-        >
-          My Guides
-        </Link>
-      </div>
+          <div className="text logo-text">
+            <span className="name">{data.first_name}</span>
+            <span className="profession">{role}</span>
+          </div>
+        </div>
+      </header>
 
-      <div className="Sitebar__btns Sitebar__logout">
-        <button className="Sitebar__btn" onClick={handleLogOut}>
-          Log Out
-        </button>
+      <div className="menu-bar">
+        <div className="menu">
+          <ul className="menu-links">
+            <li className="nav-link">
+              <Link
+                to="/profile"
+                className={location == "/profile" ? "active__tab" : null}
+              >
+                <i className="bx bx-user-circle icon"></i>
+                <span className="text nav-text">Profile</span>
+              </Link>
+            </li>
+
+            {role == "admin" ? (
+              <Fragment>
+                <li className="nav-link">
+                  <Link
+                    to="/users"
+                    className={location == "/users" ? "active__tab" : null}
+                  >
+                    <i className="bx bx-group icon"></i>
+                    <span className="text nav-text">Users</span>
+                  </Link>
+                </li>
+              </Fragment>
+            ) : null}
+
+            <li className="nav-link">
+              <Link
+                to="/notification"
+                className={location == "/notification" ? "active__tab" : null}
+              >
+                <i className="bx bx-bell icon"></i>
+                <span className="text nav-text">Notifications</span>
+              </Link>
+            </li>
+
+            <li className="nav-link">
+              <Link
+                to="/guides"
+                className={location == "/guides" ? "active__tab" : null}
+              >
+                <i className="bx bx-purchase-tag icon"></i>
+                <span className="text nav-text">Guides</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bottom-content">
+          <li className="" onClick={handleLogOut}>
+            <a href="#">
+              <i className="bx bx-log-out icon"></i>
+              <span className="text nav-text">Logout</span>
+            </a>
+          </li>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
