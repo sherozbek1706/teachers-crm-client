@@ -3,3 +3,4 @@ export * from "./users";
 export * from "./notfound";
 export * from "./guides";
 export * from "./add-guide";
+export * from "./guide";
