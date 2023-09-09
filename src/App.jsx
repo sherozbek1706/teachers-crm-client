@@ -2,7 +2,7 @@ import { Route, Routes as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { Protected } from "./components";
-import { AddGuide, Guides, Login, NotFound, Users } from "./pages";
+import { AddGuide, Guide, Guides, Login, NotFound, Users } from "./pages";
 import { Profile } from "./layouts";
 import { MyContext } from "./shared/context";
 export const App = () => {
@@ -57,6 +57,15 @@ export const App = () => {
             element={
               <Protected isLoggedIn={token}>
                 <AddGuide />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/guide/:id"
+            element={
+              <Protected isLoggedIn={token}>
+                <Guide />
               </Protected>
             }
           />
