@@ -50,9 +50,6 @@
 .GuideRow__options__icon .see {
   color: #892be2;
 }
-.GuideRow__options__icon .delete {
-  color: #ff261f;
-}
 .GuideRow__options__icon .edit {
   color: #7bc043;
 }
@@ -63,4 +60,7 @@
 }
 .GuideRow__options__icon:hover .icon {
   color: #fff;
+}
+.GuideRow__link {
+  color: #000;
 }
