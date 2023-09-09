@@ -27,6 +27,11 @@
   font-size: 24px;
 }
 
+.AddGuide__header__title span {
+  font-family: "Jet Brains Mono";
+  font-size: 18px;
+  margin-left: 10px;
+}
 .AddGuide__header__option {
   padding: 10px 35px;
   height: 100%;
