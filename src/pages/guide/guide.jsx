@@ -43,6 +43,7 @@ export const Guide = () => {
           <Loader />
         ) : (
           <div className="GuideInfo">
+            <p className="GuideInfo__revision">REVISION: {data.revision}</p>
             <h1 className="GuideInfo__title">{data.title}</h1>
             <h1 className="GuideInfo__content">{data.content}</h1>
           </div>
