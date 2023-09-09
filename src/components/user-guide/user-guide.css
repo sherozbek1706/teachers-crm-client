@@ -1,0 +1,68 @@
+.UserGuide {
+  width: 100%;
+  padding: 8px 30px;
+  border: 1px solid #99999950;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  margin: 10px 0;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #e74c3c;
+}
+
+.UserGuideRead {
+  background-color: #1e8449;
+}
+
+.UserGuide__title {
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -1px;
+  text-shadow: 2px 4px 3px rgba(177, 177, 177, 0.3);
+}
+.UserGuide__option {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.UserGuide__option__read {
+  padding: 5px 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -0.9px;
+  border: none;
+  border-radius: 8px;
+  background: #000000cc;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.tick {
+  background-color: #f1c40f;
+  color: #000;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+}
+.option__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  background: #ffcc5c;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.option__icon .icon {
+  color: black;
+}
