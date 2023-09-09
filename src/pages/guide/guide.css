@@ -71,3 +71,14 @@
   letter-spacing: -0.5px;
   font-weight: 500;
 }
+
+.GuideInfo__revision {
+  display: inline-block;
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #f6cd61;
+}
