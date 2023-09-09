@@ -10,6 +10,7 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 .GuideRow__title {
+  min-height: 80px;
   line-height: 26px;
   letter-spacing: -0.8px;
   font-size: 18px;
@@ -18,7 +19,48 @@
 }
 .GuideRow__content {
   letter-spacing: -0.5px;
+  min-height: 130px;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
+}
+.GuideRow__options {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.GuideRow__options__icon {
+  width: 40px;
+  height: 40px;
+  background: #96ceb450;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 10px;
+  transition: 0.4s ease-in-out;
+}
+.GuideRow__options__icon .icon {
+  font-size: 28px;
+  transition: 0.4s ease-in-out;
+}
+.GuideRow__options__icon .see {
+  color: #892be2;
+}
+.GuideRow__options__icon .delete {
+  color: #ff261f;
+}
+.GuideRow__options__icon .edit {
+  color: #7bc043;
+}
+.GuideRow__options__icon:hover {
+  cursor: pointer;
+  background-color: #4a4e4d;
+  box-shadow: #475658b6 0px 48px 100px 0px;
+}
+.GuideRow__options__icon:hover .icon {
+  color: #fff;
 }
