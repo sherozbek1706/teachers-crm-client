@@ -49,7 +49,7 @@ export const Sitebar = ({ data = localStorage.getItem("role") }) => {
             location == "/myguides" ? "active__tab" : null
           }`}
         >
-          My Guides
+          Notification
         </Link>
       </div>
 
