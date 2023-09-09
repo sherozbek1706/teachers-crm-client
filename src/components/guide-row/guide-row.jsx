@@ -1,7 +1,9 @@
 import { MdEdit, MdRemoveRedEye } from "react-icons/md";
 import "./guide-row.css";
 import { Link } from "react-router-dom";
+import { Fragment } from "react";
 export const GuideRow = ({ data }) => {
+  const role = localStorage.getItem("role") == "admin" ? true : false;
   const { title, content, id } = data;
 
   const truncatedText = (text, length) => {
@@ -20,9 +22,15 @@ export const GuideRow = ({ data }) => {
             <MdRemoveRedEye className="icon see" />
           </div>
         </Link>
-        <div className="GuideRow__options__icon">
-          <MdEdit className="icon edit" />
-        </div>
+        {role ? (
+          <Fragment>
+            <Link to={`/edit/guide/${id}`}>
+              <div className="GuideRow__options__icon">
+                <MdEdit className="icon edit" />
+              </div>
+            </Link>
+          </Fragment>
+        ) : null}
       </div>
     </div>
   );

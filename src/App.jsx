@@ -71,6 +71,15 @@ export const App = () => {
           />
 
           <Route
+            path="/edit/guide/:id"
+            element={
+              <Protected isLoggedIn={token}>
+                <AddGuide />
+              </Protected>
+            }
+          />
+
+          <Route
             path="*"
             element={
               <Protected isLoggedIn={token}>
