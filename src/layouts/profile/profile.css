@@ -79,3 +79,31 @@
   letter-spacing: -0.5px;
   font-weight: 600;
 }
+.Profile__guides {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.Profile__guide {
+  background: #78a6fd;
+  width: 250px;
+  padding: 15px;
+  margin-right: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.Profile__info__text__guide {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+}
+.Profile__info__shadow__guide {
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: -1px;
+}

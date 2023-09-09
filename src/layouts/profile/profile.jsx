@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Sitebar } from "../sitebar";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
@@ -57,44 +57,50 @@ export const Profile = () => {
         {!userData._id ? (
           <Loader />
         ) : (
-          <div className="Profile__infos">
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">ID</p>
-              <p className="Profile__info__text">{_id}</p>
+          <Fragment>
+            <div className="Profile__infos">
+              <div className="Profile__guides">
+                <div className="Profile__guide">
+                  <p className="Profile__info__text__guide">{total_guides}</p>
+                  <p className="Profile__info__shadow__guide">TOTAL GUIDES</p>
+                </div>
+                <div className="Profile__guide">
+                  <p className="Profile__info__text__guide">{todo_guides}</p>
+                  <p className="Profile__info__shadow__guide">TODO GUIDES</p>
+                </div>
+                <div className="Profile__guide">
+                  <p className="Profile__info__text__guide">{read_guides}</p>
+                  <p className="Profile__info__shadow__guide">
+                    COMPLETED GUIDES
+                  </p>
+                </div>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">ID</p>
+                <p className="Profile__info__text">{_id}</p>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">FIRST NAME</p>
+                <p className="Profile__info__text">{first_name}</p>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">LAST NAME</p>
+                <p className="Profile__info__text">{last_name}</p>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">USERNAME</p>
+                <p className="Profile__info__text">{username}</p>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">AGE</p>
+                <p className="Profile__info__text">{age}</p>
+              </div>
+              <div className="Profile__info">
+                <p className="Profile__info__shadow">ROLE</p>
+                <p className="Profile__info__text">{role}</p>
+              </div>
             </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">FIRST NAME</p>
-              <p className="Profile__info__text">{first_name}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">LAST NAME</p>
-              <p className="Profile__info__text">{last_name}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">USERNAME</p>
-              <p className="Profile__info__text">{username}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">AGE</p>
-              <p className="Profile__info__text">{age}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">ROLE</p>
-              <p className="Profile__info__text">{role}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">TOTAL GUIDES</p>
-              <p className="Profile__info__text">{total_guides}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">TODO GUIDES</p>
-              <p className="Profile__info__text">{todo_guides}</p>
-            </div>
-            <div className="Profile__info">
-              <p className="Profile__info__shadow">COMPLETED GUIDES</p>
-              <p className="Profile__info__text">{read_guides}</p>
-            </div>
-          </div>
+          </Fragment>
         )}
       </div>
     </div>
