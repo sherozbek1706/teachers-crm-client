@@ -1,6 +1,6 @@
+import { MdEdit, MdRemoveRedEye } from "react-icons/md";
 import "./guide-row.css";
-import { axiosInstance } from "../../shared/services/axios";
-import { MdDelete, MdEdit, MdRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router-dom";
 export const GuideRow = ({ data }) => {
   const { title, content, id } = data;
 
@@ -10,12 +10,16 @@ export const GuideRow = ({ data }) => {
 
   return (
     <div className="GuideRow">
-      <h3 className="GuideRow__title">{truncatedText(title, 75)}</h3>
+      <Link className="GuideRow__link" to={`/guide/${id}`}>
+        <h3 className="GuideRow__title">{truncatedText(title, 75)}</h3>
+      </Link>
       <p className="GuideRow__content">{truncatedText(content, 250)}</p>
       <div className="GuideRow__options">
-        <div className="GuideRow__options__icon">
-          <MdRemoveRedEye className="icon see" />
-        </div>
+        <Link to={`/guide/${id}`}>
+          <div className="GuideRow__options__icon">
+            <MdRemoveRedEye className="icon see" />
+          </div>
+        </Link>
         <div className="GuideRow__options__icon">
           <MdEdit className="icon edit" />
         </div>
