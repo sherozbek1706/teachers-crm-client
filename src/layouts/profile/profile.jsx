@@ -47,7 +47,9 @@ export const Profile = () => {
       <Sitebar data={id == "me" ? role : "admin"} />
       <div className="Profile">
         <div className="Profile__header">
-          <h1 className="Profile__header__title">User Profile</h1>
+          <h1 className="Profile__header__title">
+            User Profile {id == "me" ? null : <span>#{id}</span>}
+          </h1>
           <div className="Profile__header__option">
             <button className="Profile__header__edit">Edit Profile</button>
           </div>

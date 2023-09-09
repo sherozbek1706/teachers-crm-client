@@ -26,7 +26,11 @@
   text-transform: uppercase;
   font-size: 24px;
 }
-
+.Profile__header__title span {
+  font-family: "Jet Brains Mono";
+  font-size: 18px;
+  margin-left: 10px;
+}
 .Profile__header__option {
   /* border: 1px solid red; */
   padding: 10px 35px;
