@@ -99,6 +99,7 @@ export const Guides = () => {
             ) : null}
           </div>
         </div>
+        <h1 className="Guides__filters__title">Sorting & Search & PerPage</h1>
         <div className="Guides__filters">
           <select
             value={sorted}

@@ -52,6 +52,15 @@
   background: #457fae;
   cursor: pointer;
 }
+.Guides__filters__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 20px;
+  line-height: 0;
+  letter-spacing: -1px;
+  padding-left: 55px;
+}
 .Guides__filters {
   width: 100%;
   display: flex;
