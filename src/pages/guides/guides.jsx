@@ -33,6 +33,7 @@ export const Guides = () => {
 
   const handleChangeSearch = (e) => {
     setSearch(e.target.value);
+    setOffset(0);
   };
 
   const handleChangeSorting = (e) => {
@@ -41,6 +42,7 @@ export const Guides = () => {
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
+    setOffset(0);
   };
 
   useEffect(() => {
