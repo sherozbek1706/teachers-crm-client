@@ -52,3 +52,39 @@
   background: #457fae;
   cursor: pointer;
 }
+.Guides__filters {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 18px 35px;
+}
+.filters__select {
+  height: 40px;
+  margin: 0 20px;
+  padding: 0 25px;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+  background: #b3cde09d;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0.5px solid #b3cde0ea;
+  box-shadow: #3c404323 0px 1px 2px 0px, #3c404310 0px 1px 3px 1px;
+}
+.filters__input {
+  width: 350px;
+  height: 40px;
+  margin: 0 20px;
+  border: none;
+  background: #b3cde09d;
+  border-radius: 8px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0.5px solid #b3cde0ea;
+  box-shadow: #3c404323 0px 1px 2px 0px, #3c404310 0px 1px 3px 1px;
+}
