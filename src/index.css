@@ -5,3 +5,6 @@
   font-family: "Poppins";
   text-decoration: none;
 }
+::-webkit-scrollbar {
+  display: none;
+}
