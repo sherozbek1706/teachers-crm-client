@@ -1,9 +1,9 @@
+import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
-import jwt_decode from "jwt-decode";
 import { errorNot, successNot } from "../../shared/toastfy";
 import "./add-user.css";
 

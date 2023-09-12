@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../components";
 import { Sitebar } from "../../layouts";
-import "./guide.css";
-import { axiosInstance } from "../../shared/services/axios";
 import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
 import { successNot } from "../../shared/toastfy";
+import "./guide.css";
 
 export const Guide = () => {
   const role = localStorage.getItem("role") == "admin" ? true : false;

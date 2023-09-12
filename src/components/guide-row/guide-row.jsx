@@ -1,7 +1,7 @@
-import { MdEdit, MdRemoveRedEye } from "react-icons/md";
-import "./guide-row.css";
-import { Link } from "react-router-dom";
 import { Fragment } from "react";
+import { MdEdit, MdRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router-dom";
+import "./guide-row.css";
 export const GuideRow = ({ data }) => {
   const role = localStorage.getItem("role") == "admin" ? true : false;
   const { title, content, id } = data;

@@ -1,11 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../../components";
+import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
 import { Sitebar } from "../sitebar";
 import "./profile.css";
-import { axiosInstance } from "../../shared/services/axios";
-import { Loader } from "../../components";
-import { Link, useParams } from "react-router-dom";
-import { HandleFetchError } from "../../shared/errors/clear-account";
-import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
   const navigate = useNavigate();

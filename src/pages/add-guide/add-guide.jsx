@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Sitebar } from "../../layouts";
-import "./add-guide.css";
-import { useEffect, useState } from "react";
-import { axiosInstance } from "../../shared/services/axios";
 import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
 import { successNot } from "../../shared/toastfy";
+import "./add-guide.css";
 
 export const AddGuide = () => {
   const [content, setContent] = useState("");
