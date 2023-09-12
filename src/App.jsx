@@ -1,7 +1,7 @@
 import { Route, Routes as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "./App.css";
 import { Protected } from "./components";
+import "./App.css";
 import {
   AddGuide,
   AddUser,
@@ -14,6 +14,7 @@ import {
 } from "./pages";
 import { Profile } from "./layouts";
 import { MyContext } from "./shared/context";
+import { ProtectRoute } from "./components/private/protect-route";
 export const App = () => {
   const token = localStorage.getItem("token") ? true : false;
   const role = localStorage.getItem("role") == "admin";
@@ -37,7 +38,9 @@ export const App = () => {
             path="/users"
             element={
               <Protected isLoggedIn={token}>
-                <Users />
+                <ProtectRoute>
+                  <Users />
+                </ProtectRoute>
               </Protected>
             }
           />
@@ -65,7 +68,9 @@ export const App = () => {
             path="/add/guides"
             element={
               <Protected isLoggedIn={token}>
-                <AddGuide />
+                <ProtectRoute>
+                  <AddGuide />
+                </ProtectRoute>
               </Protected>
             }
           />
@@ -83,13 +88,37 @@ export const App = () => {
             path="/edit/guide/:id"
             element={
               <Protected isLoggedIn={token}>
-                <AddGuide />
+                <ProtectRoute>
+                  <AddGuide />
+                </ProtectRoute>
               </Protected>
             }
           />
 
           <Route
             path="/add/user"
+            element={
+              <Protected isLoggedIn={token}>
+                <ProtectRoute>
+                  <AddUser />
+                </ProtectRoute>
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/edit/user/:id"
+            element={
+              <Protected isLoggedIn={token}>
+                <ProtectRoute>
+                  <AddUser />
+                </ProtectRoute>
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/edit/user/me"
             element={
               <Protected isLoggedIn={token}>
                 <AddUser />

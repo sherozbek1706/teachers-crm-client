@@ -136,13 +136,17 @@ export const Notification = () => {
             <Loader />
           ) : (
             <Fragment>
-              {data.map((Userguides, idx) => (
-                <UserGuide
-                  key={idx}
-                  data={Userguides}
-                  handleReadNotify={(id) => handleReadNotify(id)}
-                />
-              ))}
+              {data.length > 0 ? (
+                data.map((Userguides, idx) => (
+                  <UserGuide
+                    key={idx}
+                    data={Userguides}
+                    handleReadNotify={(id) => handleReadNotify(id)}
+                  />
+                ))
+              ) : (
+                <h1>Notifications Not Found</h1>
+              )}
             </Fragment>
           )}
         </div>

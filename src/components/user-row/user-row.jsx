@@ -5,11 +5,17 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 import { axiosInstance } from "../../shared/services/axios";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { Fragment } from "react";
+import { successNot } from "../../shared/toastfy";
 export const UserRow = ({ data }) => {
   const handleRemoveUser = (id) => {
-    axiosInstance.delete(`/users/${id}`).catch((err) => {
-      HandleFetchError(err);
-    });
+    axiosInstance
+      .delete(`/users/${id}`)
+      .then(() => {
+        successNot("User o'chirildi!");
+      })
+      .catch((err) => {
+        HandleFetchError(err);
+      });
   };
 
   return (
@@ -25,7 +31,9 @@ export const UserRow = ({ data }) => {
             <Link to={`/profile/${user.id}`}>
               <AiFillEye className="Users__icons Users__view" />
             </Link>
-            <BiEdit className="Users__icons Users__edit" />
+            <Link to={`/edit/user/${user.id}`}>
+              <BiEdit className="Users__icons Users__edit" />
+            </Link>
             <BiTrash
               className="Users__icons Users__delete"
               onClick={() => handleRemoveUser(user.id)}
