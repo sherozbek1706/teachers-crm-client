@@ -152,11 +152,10 @@ th {
   text-align: center;
 }
 th {
-  background-color: #ba68c8;
+  background-color: #695cfe;
   color: #fafafa;
-  font-family: "Open Sans", Sans-serif;
-  font-weight: 200;
   text-transform: uppercase;
+  font-weight: 500;
 }
 tr {
   width: 100%;

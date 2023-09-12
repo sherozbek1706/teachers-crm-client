@@ -1,6 +1,6 @@
 import React, { createRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Loader, Pagination, UserRow } from "../../components";
+import { Loader, NotDefined, Pagination, UserRow } from "../../components";
 import { Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
@@ -220,9 +220,16 @@ export const Users = () => {
             ) : state.usersData.length > 0 ? (
               <UserRow data={state.usersData} />
             ) : (
-              <h1>Not Found User</h1>
+              ""
             )}
           </table>
+          {state.usersData.length > 0 ? (
+            ""
+          ) : (
+            <>
+              <NotDefined msg={"User was Not Found"} />
+            </>
+          )}
         </div>
         <Pagination
           data={{
