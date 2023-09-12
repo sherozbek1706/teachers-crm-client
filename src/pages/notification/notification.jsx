@@ -9,7 +9,7 @@ import "./notification.css";
 export const Notification = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [completedFilter, setCompletedFilter] = useState("default");
+  const [completedFilter, setCompletedFilter] = useState("uncompleted");
 
   const [pageInfo, setPageInfo] = useState({});
   const [limit, setLimit] = useState(10);
