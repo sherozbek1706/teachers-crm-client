@@ -108,3 +108,6 @@
 .Users__icons:hover {
   opacity: 1;
 }
+.disable_filtersBtn {
+  opacity: 0.4;
+}

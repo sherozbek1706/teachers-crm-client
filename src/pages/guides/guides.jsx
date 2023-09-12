@@ -1,21 +1,23 @@
 import { Fragment, createRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Loader, Pagination } from "../../components";
 import { GuideList, Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
-import { Link } from "react-router-dom";
 import "./guides.css";
 
 export const Guides = () => {
   const [data, setData] = useState([]);
+
   const [pageInfo, setPageInfo] = useState({});
   const [limit, setLimit] = useState(10);
+  const [pageNums, setPageNums] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [refresh, setRefresh] = useState(false);
+
   const [sorted, setSorted] = useState("desc");
   const [search, setSearch] = useState("");
-  const [pageNums, setPageNums] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refresh, setRefresh] = useState(false);
 
   const role = localStorage.getItem("role") == "admin";
 
@@ -33,6 +35,7 @@ export const Guides = () => {
 
   const handleChangeSearch = (e) => {
     setSearch(e.target.value);
+    setOffset(0);
   };
 
   const handleChangeSorting = (e) => {
@@ -41,6 +44,7 @@ export const Guides = () => {
 
   const handleChangeLimit = (e) => {
     setLimit(e.target.value);
+    setOffset(0);
   };
 
   useEffect(() => {
@@ -97,6 +101,7 @@ export const Guides = () => {
             ) : null}
           </div>
         </div>
+        <h1 className="Guides__filters__title">Sorting & Search & PerPage</h1>
         <div className="Guides__filters">
           <select
             value={sorted}

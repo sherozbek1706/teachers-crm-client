@@ -24,13 +24,13 @@ export const UserGuide = ({ data, handleReadNotify }) => {
           </div>
         </Link>
         {completed ? (
-          <button className="UserGuide__option__read tick">O'qilgan</button>
+          <button className="UserGuide__option__read tick">Completed</button>
         ) : (
           <button
             className="UserGuide__option__read"
             onClick={() => handleReadGuides(_id)}
           >
-            O'qidim
+            Complete
           </button>
         )}
       </div>
