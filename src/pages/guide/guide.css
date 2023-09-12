@@ -43,9 +43,11 @@
   justify-content: center;
 }
 .Guide__header__back {
-  width: 150px;
+  min-width: 150px;
   height: 40px;
   border-radius: 4px;
+  padding: 0 10px;
+  margin: 0 10px;
   border: none;
   font-weight: 500;
   background: #457fae50;
@@ -81,4 +83,98 @@
   padding: 10px 15px;
   border-radius: 8px;
   background: #f6cd61;
+}
+.GuideModal {
+  position: fixed;
+  width: 650px;
+  height: 100%;
+  /* background-color: #58668b; */
+  backdrop-filter: blur(36px);
+  top: 0;
+  right: -1000px;
+  transition: 0.3s ease-in-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.sticky {
+  right: 0;
+}
+.GuideModal__header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.GuideModal__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.GuideModal__icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+.GuideModal__users {
+  width: 100%;
+  overflow: auto;
+  height: calc(100% - 140px);
+  cursor: pointer;
+  padding: 0 10px;
+}
+.GuideModalUser {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+.GuideModalUser:nth-child(2n) {
+  background-color: #8dc7cc;
+}
+.GuideModalUser:nth-child(2n + 1) {
+  background-color: #3c7277;
+}
+.GuideModalUser__info {
+  display: flex;
+}
+.GuideModalUser__idx {
+  font-size: 18px;
+  margin-right: 14px;
+  font-weight: 600;
+}
+.GuideModalUser__name {
+  font-size: 18px;
+  font-weight: 500;
+}
+.GuideModalUser:nth-child(2n + 1) .GuideModalUser__name,
+.GuideModalUser:nth-child(2n + 1) .GuideModalUser__idx {
+  color: #fff;
+}
+.GuideModalUser__checkbox {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.GuideModal__submit {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.GuideModal__submit button {
+  width: 70%;
+  height: 80%;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a4d69;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
 }
