@@ -109,11 +109,9 @@
   width: 20%;
 }
 .Users__option {
-  width: 20%;
-  /* border: 1px solid red; */
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 5px 10px;
 }
@@ -138,4 +136,33 @@
 }
 .disable_filtersBtn {
   opacity: 0.4;
+}
+.Table__users {
+  width: 100%;
+  padding: 10px 35px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+}
+td,
+th {
+  padding: 15px 10px;
+  text-align: center;
+}
+th {
+  background-color: #ba68c8;
+  color: #fafafa;
+  font-family: "Open Sans", Sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+tr {
+  width: 100%;
+  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif;
+}
+tr:nth-child(even) {
+  background-color: #dcd9d9;
 }
