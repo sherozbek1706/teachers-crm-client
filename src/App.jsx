@@ -99,6 +99,17 @@ export const App = () => {
             path="/add/user"
             element={
               <Protected isLoggedIn={token}>
+                <ProtectRoute>
+                  <AddUser />
+                </ProtectRoute>
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/edit/user/me"
+            element={
+              <Protected isLoggedIn={token}>
                 <AddUser />
               </Protected>
             }
