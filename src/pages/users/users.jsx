@@ -4,7 +4,7 @@ import "./users.css";
 import { AiFillEye } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { axiosInstance } from "../../shared/services/axios";
-import { Loader, Pagination } from "../../components";
+import { Loader, Pagination, UserRow } from "../../components";
 import { Link } from "react-router-dom";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 
@@ -90,10 +90,9 @@ export const Users = () => {
   useEffect(() => {
     paginationSorting();
     fetchData();
-  }, [state.filter, state.limit, state.offset]);
+  }, [state.usersData, state.filter, state.limit, state.offset]);
 
   const fetchData = async () => {
-    console.log("FETCH");
     try {
       const filters =
         state.filter !== "all" ? `&filters[role]=${state.filter}` : "";
@@ -136,33 +135,22 @@ export const Users = () => {
     }));
   };
 
-  const handleRemoveUser = (id) => {
-    axiosInstance
-      .delete(`/users/${id}`)
-      .then(() => {
-        setState((prevState) => ({
-          ...prevState,
-          usersData: prevState.usersData.filter((user) => user.id !== id),
-        }));
-      })
-      .catch((err) => {
-        HandleFetchError(err);
-      })
-      .finally(() => {
-        fetchData();
-      });
-  };
-
   return (
     <div className="Users__dashboard" ref={myRef}>
       <Sitebar />
       <div className="Users">
         <div className="Users__header">
           <h1 className="Users__header__title">All Users</h1>
+          <div className="AddUser__header__option">
+            <Link to="/add/user">
+              <button className="AddUser__header__btn">Add User</button>
+            </Link>
+          </div>
         </div>
         <h1 className="Notification__filters__title">
           Sorting & Search & PerPage
         </h1>
+
         <div className="Notification__filters">
           <select
             className="filters__select"
@@ -173,6 +161,7 @@ export const Users = () => {
             <option value="employee">EMPLOYEE</option>
             <option value="admin">ADMIN</option>
           </select>
+
           <select
             className="filters__select"
             value={state.limit}
@@ -182,6 +171,7 @@ export const Users = () => {
             <option value="20">20</option>
             <option value="30">30</option>
           </select>
+
           <input
             type="text"
             value={state.search}
@@ -189,6 +179,7 @@ export const Users = () => {
             className="filters__input"
             placeholder="search..."
           />
+
           <select
             className="filters__select"
             value={`${state.by}:${state.order}`}
@@ -199,6 +190,7 @@ export const Users = () => {
             <option value="id:desc">So'ngi Qo'shilgan</option>
             <option value="id:asc">Birinchi Qo'shilgan</option>
           </select>
+
           <button
             className={`reset_filters ${
               !state.isChange ? "disable_filtersBtn" : ""
@@ -231,27 +223,7 @@ export const Users = () => {
           {state.loading ? (
             <Loader />
           ) : state.usersData.length > 0 ? (
-            state.usersData.map((user) => (
-              <div className="Users__row" key={user.id}>
-                <p className="Users__text Users__firstname">
-                  {user.first_name}
-                </p>
-                <p className="Users__text Users__lastname">{user.last_name}</p>
-                <p className="Users__text Users__role">{user.role}</p>
-                <p className="Users__text Users__age">{user.age}</p>
-                <p className="Users__text Users__username">@{user.username}</p>
-                <div className="Users__option">
-                  <Link to={`/profile/${user.id}`}>
-                    <AiFillEye className="Users__icons Users__view" />
-                  </Link>
-                  <BiEdit className="Users__icons Users__edit" />
-                  <BiTrash
-                    className="Users__icons Users__delete"
-                    onClick={() => handleRemoveUser(user.id)}
-                  />
-                </div>
-              </div>
-            ))
+            <UserRow data={state.usersData} />
           ) : (
             <h1>Not Found User</h1>
           )}
