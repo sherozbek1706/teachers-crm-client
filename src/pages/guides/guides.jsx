@@ -8,14 +8,16 @@ import "./guides.css";
 
 export const Guides = () => {
   const [data, setData] = useState([]);
+
   const [pageInfo, setPageInfo] = useState({});
   const [limit, setLimit] = useState(10);
+  const [pageNums, setPageNums] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [refresh, setRefresh] = useState(false);
+
   const [sorted, setSorted] = useState("desc");
   const [search, setSearch] = useState("");
-  const [pageNums, setPageNums] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refresh, setRefresh] = useState(false);
 
   const role = localStorage.getItem("role") == "admin";
 
