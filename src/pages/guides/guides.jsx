@@ -1,9 +1,9 @@
 import { Fragment, createRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Loader, Pagination } from "../../components";
 import { GuideList, Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
-import { Link } from "react-router-dom";
 import "./guides.css";
 
 export const Guides = () => {
