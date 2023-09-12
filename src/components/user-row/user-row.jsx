@@ -25,7 +25,9 @@ export const UserRow = ({ data }) => {
             <Link to={`/profile/${user.id}`}>
               <AiFillEye className="Users__icons Users__view" />
             </Link>
-            <BiEdit className="Users__icons Users__edit" />
+            <Link to={`/edit/user/${user.id}`}>
+              <BiEdit className="Users__icons Users__edit" />
+            </Link>
             <BiTrash
               className="Users__icons Users__delete"
               onClick={() => handleRemoveUser(user.id)}
