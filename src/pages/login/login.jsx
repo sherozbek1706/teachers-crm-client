@@ -33,25 +33,33 @@ export const Login = () => {
   };
 
   return (
-    <div className="Login">
-      <form className="Login__form" onSubmit={handleLoginUser}>
-        <h1 className="Login__header">Login</h1>
-        <input
-          type="text"
-          id="username"
-          className="Login__input"
-          placeholder="Login"
-          required
-        />
-        <input
-          type="password"
-          id="password"
-          className="Login__input"
-          placeholder="Password"
-          required
-        />
-        <input type="submit" className="Login__submit" value={"Login"} />
-      </form>
+    <div className="login__page container flex">
+      <div className="facebook-page flex">
+        <div className="text">
+          <h1>NAJOT FINAL</h1>
+          <p>Tizimga kiring va qoidalardan o'z</p>
+          <p>vaqtida xabardor bo'ling!</p>
+        </div>
+        <form onSubmit={handleLoginUser}>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter Username"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+          <div className="link">
+            <button type="submit" className="login">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

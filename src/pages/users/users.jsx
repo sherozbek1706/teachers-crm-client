@@ -148,7 +148,6 @@ export const Users = () => {
         <h1 className="Notification__filters__title">
           Sorting & Search & PerPage
         </h1>
-
         <div className="Notification__filters">
           <select
             className="filters__select"
@@ -199,32 +198,31 @@ export const Users = () => {
             SEARCH
           </button>
         </div>
-        <div className="Users__list">
-          <div className="Users__row">
-            <p className="Users__text Users__firstname">
-              <b>First Name</b>
-            </p>
-            <p className="Users__text Users__lastname">
-              <b>Last Name</b>
-            </p>
-            <p className="Users__text Users__role">
-              <b>Role</b>
-            </p>
-            <p className="Users__text Users__age">
-              <b>Age</b>
-            </p>
-            <p className="Users__text Users__username">
-              <b>Username</b>
-            </p>
-          </div>
+        <div className="Table__users">
+          <table>
+            <tr>
+              <th>ID</th>
 
-          {state.loading ? (
-            <Loader />
-          ) : state.usersData.length > 0 ? (
-            <UserRow data={state.usersData} />
-          ) : (
-            <h1>Not Found User</h1>
-          )}
+              <th>First Name</th>
+
+              <th>Last Name</th>
+
+              <th>Age</th>
+
+              <th>Role</th>
+
+              <th>Username</th>
+
+              <th>Option</th>
+            </tr>
+            {state.loading ? (
+              <Loader />
+            ) : state.usersData.length > 0 ? (
+              <UserRow data={state.usersData} />
+            ) : (
+              <h1>Not Found User</h1>
+            )}
+          </table>
         </div>
         <Pagination
           data={{
