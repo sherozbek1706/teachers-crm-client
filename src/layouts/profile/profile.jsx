@@ -3,7 +3,7 @@ import { Sitebar } from "../sitebar";
 import "./profile.css";
 import { axiosInstance } from "../../shared/services/axios";
 import { Loader } from "../../components";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +51,9 @@ export const Profile = () => {
             User Profile {id == "me" ? null : <span>#{id}</span>}
           </h1>
           <div className="Profile__header__option">
-            <button className="Profile__header__edit">Edit Profile</button>
+            <Link to={"/edit/user/me"}>
+              <button className="Profile__header__edit">Edit Profile</button>
+            </Link>
           </div>
         </div>
         {!userData._id ? (
