@@ -1,7 +1,8 @@
 import { Route, Routes as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Protected } from "./components";
-import "./App.css";
+import { ProtectRoute } from "./components/private/protect-route";
+import { Profile } from "./layouts";
 import {
   AddGuide,
   AddUser,
@@ -12,9 +13,7 @@ import {
   Notification,
   Users,
 } from "./pages";
-import { Profile } from "./layouts";
 import { MyContext } from "./shared/context";
-import { ProtectRoute } from "./components/private/protect-route";
 export const App = () => {
   const token = localStorage.getItem("token") ? true : false;
   const role = localStorage.getItem("role") == "admin";

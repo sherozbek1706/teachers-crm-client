@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import "./user-row.css";
+import { Fragment } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
-import { axiosInstance } from "../../shared/services/axios";
+import { Link } from "react-router-dom";
 import { HandleFetchError } from "../../shared/errors/clear-account";
-import { Fragment } from "react";
+import { axiosInstance } from "../../shared/services/axios";
 import { successNot } from "../../shared/toastfy";
+import "./user-row.css";
 export const UserRow = ({ data }) => {
   const handleRemoveUser = (id) => {
     axiosInstance

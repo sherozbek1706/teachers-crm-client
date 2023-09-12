@@ -1,12 +1,10 @@
 import React, { createRef, useEffect, useState } from "react";
-import { Sitebar } from "../../layouts";
-import "./users.css";
-import { AiFillEye } from "react-icons/ai";
-import { BiEdit, BiTrash } from "react-icons/bi";
-import { axiosInstance } from "../../shared/services/axios";
-import { Loader, Pagination, UserRow } from "../../components";
 import { Link } from "react-router-dom";
+import { Loader, Pagination, UserRow } from "../../components";
+import { Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
+import "./users.css";
 
 export const Users = () => {
   const [state, setState] = useState({

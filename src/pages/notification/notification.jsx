@@ -1,10 +1,10 @@
-import "./notification.css";
-import { Sitebar } from "../../layouts";
 import { Fragment, createRef, useEffect, useState } from "react";
-import { axiosInstance } from "../../shared/services/axios";
 import { Loader, Pagination, UserGuide } from "../../components";
+import { Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
+import { axiosInstance } from "../../shared/services/axios";
 import { successNot } from "../../shared/toastfy";
+import "./notification.css";
 
 export const Notification = () => {
   const [data, setData] = useState([]);

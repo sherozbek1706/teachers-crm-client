@@ -1,7 +1,6 @@
+import { MdRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./user-guide.css";
-import { MdRemoveRedEye } from "react-icons/md";
-import { axiosInstance } from "../../shared/services/axios";
 export const UserGuide = ({ data, handleReadNotify }) => {
   const {
     _id,
