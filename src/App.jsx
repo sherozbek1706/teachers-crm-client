@@ -4,6 +4,7 @@ import "./App.css";
 import { Protected } from "./components";
 import {
   AddGuide,
+  AddUser,
   Guide,
   Guides,
   Login,
@@ -83,6 +84,15 @@ export const App = () => {
             element={
               <Protected isLoggedIn={token}>
                 <AddGuide />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/add/user"
+            element={
+              <Protected isLoggedIn={token}>
+                <AddUser />
               </Protected>
             }
           />
