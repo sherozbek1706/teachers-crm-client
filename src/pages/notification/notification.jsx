@@ -1,5 +1,5 @@
 import { Fragment, createRef, useEffect, useState } from "react";
-import { Loader, Pagination, UserGuide } from "../../components";
+import { Loader, NotDefined, Pagination, UserGuide } from "../../components";
 import { Sitebar } from "../../layouts";
 import { HandleFetchError } from "../../shared/errors/clear-account";
 import { axiosInstance } from "../../shared/services/axios";
@@ -145,7 +145,7 @@ export const Notification = () => {
                   />
                 ))
               ) : (
-                <h1>Notifications Not Found</h1>
+                <NotDefined msg={"Notification was not found"} />
               )}
             </Fragment>
           )}

@@ -1,0 +1,14 @@
+.NotDefined {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NotDefined h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  color: hsla(0, 99%, 58%, 0.719);
+}
